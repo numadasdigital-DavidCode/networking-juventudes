@@ -406,7 +406,7 @@ function openEditor(id, name = '') {
     PROF[nid] = rec; store.set('prof', PROF);
     ME = nid; store.set('me', ME);
     build(); renderAll(); dlg.close(); toast('Perfil guardado');
-    if (API) fetch(API, {method: 'POST', headers: {'Content-Type': 'text/plain'}, body: JSON.stringify({id: nid, ...rec})}).catch(() => toast('Sin conexión: quedó guardado en tu teléfono'));
+    if (API) fetch(API, {method: 'POST', headers: {'Content-Type': 'text/plain'}, body: JSON.stringify({id: nid, ...rec, n: n || p.n})}).catch(() => toast('Sin conexión: quedó guardado en tu teléfono'));
   };
   if (!dlg.open) dlg.showModal();
 }
